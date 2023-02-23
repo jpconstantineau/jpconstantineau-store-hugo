@@ -16,3 +16,9 @@ jobs:
           cd ./store
           hugo --minify
           ls public
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: website
+          path: |
+            ./store/public
