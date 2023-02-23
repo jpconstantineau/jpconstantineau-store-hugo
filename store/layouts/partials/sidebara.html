@@ -1,0 +1,6 @@
+<H3>Categories</H3>
+<ul class="no-bullets">
+    {{ range .Site.Taxonomies.categories }}
+            <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> <sub>({{ .Count }})</sub></li>
+    {{ end }}
+</ul>

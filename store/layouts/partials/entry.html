@@ -1,0 +1,40 @@
+<div class="container">
+    <div class = "cardbox">
+        {{- range .Pages  }}
+    
+        <div class="card">
+            <img src="/img/{{- .Params.image -}}" alt="{{ .Title }}" style="width:100%">
+            <h1>{{ i18n "posts.title" }}</h1>
+            <p class="title">{{ .Title }}</p>
+            <p><small><time>{{ .Date | time.Format (i18n "posts.date") }}</time></small></p>
+            <table>
+                <tr>
+                    
+                    <td>Available: {{ .Params.quantity }} </td>
+                    <td>
+                        {{- partial "tindiebutton.html" . -}}
+
+                      </td>
+                    
+                    
+                </tr>
+                <tr>
+                    <td>Price: {{ .Params.price }} USD</td>
+
+                    <td>
+                            {{- partial "paypalbutton.html" . -}}
+                    </td>
+
+                </tr>
+            </table>
+
+            <a href="{{ .Permalink }}"><button>Details</button> </a>
+
+            </div>
+    
+        {{- end }}
+    </div>
+</div>
+
+
+

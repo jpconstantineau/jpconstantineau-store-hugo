@@ -1,0 +1,229 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    background-color: #fff;
+    color: #ccc;
+  }
+  
+  h1, h2, h3, p {
+    margin: 0 0 1em 0;
+  }
+
+  a {
+    all: unset;
+  }
+
+  .wrapper {
+    
+    margin: 0 5px;
+    display: grid;
+    grid-gap: 10px;
+  }
+  
+  @media screen and (min-width: 600px) {
+  
+    /* no grid support? */
+    .block-a, .block-b, .block-c {
+      float: left;
+      width: 10%;
+    }
+  
+    .content {
+      float: right;
+      width: 90%;
+    }
+  
+    .wrapper {
+      margin: 0 auto;
+      grid-template-columns: 1fr 3fr;
+      grid-auto-rows: minmax(0px, auto);
+    }
+
+    .header, .footer {
+      grid-column: 1 / -1;
+      /* needed for the floated layout */
+      clear: both;
+    }
+    
+    .block-a {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    
+    .block-b {
+      grid-column: 1;
+      grid-row: 3;
+    }
+    
+    .block-c {
+      grid-column: 1;
+      grid-row: 4;
+    }
+    
+    .content {
+      grid-column: 2;
+      grid-row: 2 / 5;
+    }
+  
+  }
+  
+  .wrapper > * {
+    background-color: #f8f9fa;
+    color: #212529;
+    border-radius: 2px;
+    padding: 10px;
+    font-size: 100%;
+    /* needed for the floated layout*/
+    margin-bottom: 0px;
+  }
+  .header
+  {
+    background-color: #000;
+    color: #fff;
+  }
+
+  
+  /* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+  @supports (display: grid) {
+    .wrapper > * {
+      width: auto;
+      margin: 0;
+    }
+  }
+
+  .tagcloud .tagcloud-item {
+    text-align: center;
+  }
+
+
+  .headercontainer {
+    display: flex; 
+    justify-content:  space-between
+  }
+
+
+  .headercontainerleft {
+    display: flex; 
+    justify-content:  flex-start
+  }
+  .headercontainerright {
+    display: flex; 
+    justify-content:  flex-end
+  }
+
+/* Large */
+.navigationleft {
+  display: flex;
+  flex-flow: row wrap;
+  /* This aligns items to the end line on main-axis */
+  justify-content: flex-start;
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+  .navigationleft {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around;
+  }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .navigationleft {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+/* Large */
+.navigation {
+  display: flex;
+  flex-flow: row wrap;
+  /* This aligns items to the end line on main-axis */
+  justify-content: flex-end;
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+  .navigation {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around;
+  }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .navigation {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+ul.no-bullets {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+
+
+.cardbox {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+}
+.cardcontainer {
+  display: flex; 
+  justify-content:  space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  
+}
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  padding: 0px;
+  margin: 5px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a.card {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+.card table  {
+  text-align: center;
+  width: 100%;
+font-size: 18px;
+margin: 8px;
+}

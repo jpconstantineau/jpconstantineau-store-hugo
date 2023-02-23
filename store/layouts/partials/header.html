@@ -1,0 +1,19 @@
+<div class="headercontainer">
+    <div class="headercontainerleft">
+
+        <div class="navigationleft">
+
+            <a href="{{ .Site.BaseURL }}"> <img src="/img/KB.png" alt="{{ .Title }}" style="height:30px" > {{ .Site.Title }}</a>
+        </div>
+    </div>
+
+    <div class="headercontainerright">
+            {{ range .Site.Menus.main.ByWeight -}}
+            <div class="navigation">
+                {{ .Pre }}<a href="{{ .URL }}" title="{{ .Title }}">{{- .Name -}}</a>{{ .Post }}
+            </div>
+            {{- end }}
+            
+    </div>    
+
+</div>

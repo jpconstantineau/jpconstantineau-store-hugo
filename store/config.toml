@@ -1,4 +1,6 @@
 baseURL = 'https://store.dev.jpto.dev/'
 languageCode = 'en-us'
 title = 'BlueMicro Store'
-theme = 'etch'
+
+
+copyright = "Copyright © 2018-2023 JPConstantineau.com"

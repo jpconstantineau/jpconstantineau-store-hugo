@@ -1,0 +1,8 @@
+{{- if isset .Params "tindieid" -}}
+{{- if gt .Params.tindieid 0 -}}
+    <div id = tindie>
+        <a href="https://www.tindie.com/products/{{ .Params.tindieid }}/">Buy on Tindie</a>
+    </div>
+    {{- end -}}
+{{- end -}}
+    

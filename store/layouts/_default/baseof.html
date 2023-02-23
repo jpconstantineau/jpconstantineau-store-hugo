@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        <div class="wrapper">
+            <header class="header">{{- partial "header.html" . -}}</header>  
+            <article class="content">
+                {{- block "main" . }}{{- end }}
+            </article>            
+            <div class="block-a">{{- partial "sidebara.html" . -}}</div>
+            <div class="block-b">{{- partial "sidebarb.html" . -}}</div>
+            <div class="block-c">{{- partial "sidebarc.html" . -}}</div>
+        </div>
+    </body>
+</html>
+
+
+

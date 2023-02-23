@@ -1,0 +1,8 @@
+{{ define "main" }}
+{{ range $elem_index, $elem_val := (.GetTerms "tags") }}
+{{- if gt $elem_index 0 }}, {{ end -}}
+<a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+{{- end -}}
+{{ end }}
+
+

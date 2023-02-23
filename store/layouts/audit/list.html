@@ -1,0 +1,74 @@
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Draft</th>
+    <th>Weight</th>
+    <th>Category</th>
+    <th>paypalid</th>
+    <th>PayPalButtonID</th>
+    <th>TindieID</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Tindie</th>
+    <th>Paypal</th>
+
+
+  </tr>
+  {{ range .Site.RegularPages }}
+    <tr>
+
+      <td>
+        {{- if isset .Params "image" -}}
+        <img src="/img/{{- .Params.image -}}" alt="{{ .Title }}" style="height:50px">
+        {{ .Params.image }} 
+        {{end}}
+
+      </td>
+      <td>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </td>
+      <td>{{ .Draft }}</td>
+      <td>{{ .Weight }}</td>
+      <td>
+        {{- if isset .Params "categories" -}}
+        {{ .Params.categories }}  
+        {{end}}
+  
+      </td>
+      <td>
+        {{- if isset .Params "paypalid" -}}
+        {{ .Params.paypalid }}  
+        {{end}}
+      </td>
+      <td>
+        {{- if isset .Params "paypalbuttonid" -}}
+        {{ .Params.paypalbuttonid }}  
+        {{end}}
+      </td>
+      <td>
+        {{- if isset .Params "tindieid" -}}
+        {{ .Params.tindieid }}  
+        {{end}}
+  
+      </td>
+    </td>
+      <td>
+        {{- if isset .Params "quantity" -}}
+        {{ .Params.quantity }}  
+        {{end}}
+      </td>
+      <td>
+        {{- if isset .Params "price" -}}
+        {{ .Params.price }}  
+        {{end}}
+      </td>
+      <td>
+        {{- partial "tindiebutton.html" . -}}
+      </td>
+      <td>
+        {{- partial "paypalbutton.html" . -}}
+      </td>
+          </tr>
+  {{end}}
+</table>

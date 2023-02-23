@@ -1,0 +1,36 @@
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Kind</th>
+    <th>Link</th>
+  </tr>
+{{ range .Site.Pages }}
+
+  <tr>
+    <td>{{ .Title }}</td>
+    <td>{{ .Date }}</td>
+    <td>{{ .Kind }}</td>
+    <td>{{ .Permalink }}</td>
+  </tr>
+{{end}}
+</table>
+
+<table>
+    <tr>
+      <th>ID</th>
+      <th>Paypal Button</th>
+      <th>Price</th>
+      <th>Available</th>
+    </tr>
+{{ range .Site.Data.items }}
+
+    <tr>
+      <td>{{ .itemid }}</td>
+      <td>{{ .paypalbuttonid }}</td>
+      <td>{{ .price }}</td>
+      <td>{{ .quantities }}</td>
+    </tr>
+{{end}}
+</table>

@@ -1,0 +1,51 @@
+{{ define "main" }}
+<article>
+    <header id="post-header">
+        <h1>{{ .Title }}</h1>
+        <h4>{{ .Params.subtitle }}</h4>
+        <div>
+        {{- if isset .Params "date" -}}
+            {{ if eq .Lastmod .Date }}
+                <time>{{ .Date | time.Format (i18n "post.created") }}</time>
+            {{ else }}
+                <time>{{ .Lastmod | time.Format (i18n "post.updated") }}</time>
+            {{ end }}
+        {{- end -}}
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class = "cardbox">
+            <div class="card">
+                <img src="/img/{{- .Params.image -}}" alt="{{ .Title }}" style="width:100%">
+            </div>
+        
+            <div class="card">
+                <h2>{{  .Params.price }} USD</h2>
+
+                <h3>Available: {{  .Params.quantity }}</h3>
+
+                {{- partial "paypalbutton.html" . -}}
+                
+                {{- partial "tindiebutton.html" . -}}
+
+
+                <b>Related Tags:</b>
+                {{ range $elem_index, $elem_val := (.GetTerms "tags") }}
+                {{- if gt $elem_index 0 }}, {{ end -}}
+                <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+                {{- end -}}
+            
+            </div>
+        
+            
+        </div>
+    </div>
+    
+    
+    {{- .Content -}}
+
+
+</article>
+{{ end }}
+
